@@ -18,6 +18,10 @@ document
       });
 
       const data = await res.json();
+      if (res.status === 403) {
+        alert("You have already applied for a loan.");
+        return;
+      }
       if (!res.ok) throw new Error(data.msg || "Submission failed");
 
       alert("Loan application submitted successfully!");
